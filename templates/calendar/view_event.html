@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+View Event | LifeVault
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h2 class="fw-bold">
+
+                            <i class="bi bi-calendar-event"></i>
+
+                            {{ event.title }}
+
+                        </h2>
+
+                        <span class="badge bg-primary">
+
+                            {{ event.get_color_display }}
+
+                        </span>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="mb-4">
+
+                        <h6 class="text-muted">
+
+                            Description
+
+                        </h6>
+
+                        {% if event.description %}
+
+                            <p>{{ event.description }}</p>
+
+                        {% else %}
+
+                            <p class="text-muted">
+
+                                No description available.
+
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <h6 class="text-muted">
+
+                                Date
+
+                            </h6>
+
+                            <p>
+
+                                {{ event.date }}
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <h6 class="text-muted">
+
+                                Location
+
+                            </h6>
+
+                            <p>
+
+                                {% if event.location %}
+
+                                    {{ event.location }}
+
+                                {% else %}
+
+                                    Not specified
+
+                                {% endif %}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <h6 class="text-muted">
+
+                                Created
+
+                            </h6>
+
+                            <p>
+
+                                {{ event.created_at|date:"d M Y, h:i A" }}
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <h6 class="text-muted">
+
+                                Last Updated
+
+                            </h6>
+
+                            <p>
+
+                                {{ event.updated_at|date:"d M Y, h:i A" }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex gap-2">
+
+                        <a href="{% url 'edit_event' event.id %}"
+                           class="btn btn-warning">
+
+                            <i class="bi bi-pencil-square"></i>
+
+                            Edit
+
+                        </a>
+
+                        <a href="{% url 'delete_event' event.id %}"
+                           class="btn btn-danger">
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete
+
+                        </a>
+
+                        <a href="{% url 'calendar' %}"
+                           class="btn btn-secondary">
+
+                            <i class="bi bi-arrow-left"></i>
+
+                            Back
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

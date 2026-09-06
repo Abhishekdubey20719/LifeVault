@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard | LifeVault
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    {% include 'dashboard/sidebar.html' %}
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Top Bar -->
+        <div class="topbar">
+
+            <div>
+
+                <h2>
+                    Welcome back,
+                    {{ request.user.first_name|default:request.user.username }} 👋
+                </h2>
+
+                <p>
+                    Here's what's happening in your digital life.
+                </p>
+
+            </div>
+
+            <div class="top-right">
+
+                <form action="{% url 'global_search' %}" method="GET">
+
+                    <input
+                        type="text"
+                        name="q"
+                        class="search-box"
+                        placeholder="Search anything...">
+
+                </form>
+
+                <a href="#">
+                    <i class="bi bi-bell-fill"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Statistics -->
+
+        <div class="stats-grid">
+
+    <a href="{% url 'notes' %}" class="stat-card notes-card">
+
+        <div class="card-icon">
+            <i class="bi bi-journal-text"></i>
+        </div>
+
+        <div class="card-info">
+            <h5>Notes</h5>
+            <h2>{{ notes_count }}</h2>
+            <p>Total Notes</p>
+        </div>
+
+    </a>
+
+    <a href="{% url 'documents' %}" class="stat-card documents-card">
+
+        <div class="card-icon">
+            <i class="bi bi-file-earmark-text"></i>
+        </div>
+
+        <div class="card-info">
+            <h5>Documents</h5>
+            <h2>{{ documents_count }}</h2>
+            <p>Total Files</p>
+        </div>
+
+    </a>
+
+    <a href="{% url 'password_vault' %}" class="stat-card password-card">
+
+        <div class="card-icon">
+            <i class="bi bi-shield-lock"></i>
+        </div>
+
+        <div class="card-info">
+            <h5>Passwords</h5>
+            <h2>{{ total_passwords|default:0 }}</h2>
+            <p>Total Passwords</p>
+        </div>
+
+    </a>
+
+    <a href="{% url 'tasks' %}" class="stat-card tasks-card">
+
+        <div class="card-icon">
+            <i class="bi bi-check2-square"></i>
+        </div>
+
+        <div class="card-info">
+            <h5>Tasks</h5>
+            <h2>{{ tasks_count }}</h2>
+            <p>Pending Tasks</p>
+        </div>
+
+    </a>
+
+    <a href="{% url 'expenses' %}" class="stat-card expense-card">
+
+        <div class="card-icon">
+            <i class="bi bi-wallet2"></i>
+        </div>
+
+        <div class="card-info">
+            <h5>Expenses</h5>
+            <h2>{{ transactions_count }}</h2>
+            <p>This Month</p>
+        </div>
+
+    </a>
+
+    <a href="{% url 'calendar' %}" class="stat-card calendar-card">
+
+        <div class="card-icon">
+            <i class="bi bi-calendar-event"></i>
+        </div>
+
+        <div class="card-info">
+            <h5>Calendar</h5>
+            <h2>{{ total_events|default:0 }}</h2>
+            <p>Upcoming Events</p>
+        </div>
+
+    </a>
+
+</div>
+
+    </div>
+
+</div>
+
+{% endblock %}

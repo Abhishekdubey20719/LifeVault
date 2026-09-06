@@ -1,0 +1,51 @@
+<div class="topbar">
+
+    <div>
+
+        <h2>
+
+            Welcome Back,
+
+            {{ request.user.first_name|default:request.user.username }}
+
+            👋
+
+        </h2>
+
+        <p>
+
+            Your Digital Second Brain
+
+        </p>
+
+    </div>
+
+    <div class="top-icons">
+
+        <a href="{% url 'global_search' %}"
+           class="text-dark me-3"
+           title="Search">
+
+            <i class="bi bi-search"></i>
+
+        </a>
+
+        <a href="#"
+           class="text-dark me-3"
+           title="Notifications">
+
+            <i class="bi bi-bell"></i>
+
+        </a>
+
+        <a href="{% url 'profile' %}"
+           class="text-dark"
+           title="Profile">
+
+            <i class="bi bi-person-circle"></i>
+
+        </a>
+
+    </div>
+
+</div>

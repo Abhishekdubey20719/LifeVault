@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold text-primary"
+           href="{% url 'dashboard' %}">
+
+            <i class="bi bi-shield-lock-fill"></i>
+
+            LifeVault
+
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#appNavbar"
+                aria-controls="appNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="appNavbar">
+
+            <div class="ms-auto d-flex align-items-center gap-2">
+
+                <span class="fw-semibold text-dark me-3">
+
+                    Welcome,
+                    {{ request.user.first_name|default:request.user.username }}
+
+                </span>
+
+                <a href="{% url 'dashboard' %}"
+                   class="btn btn-outline-primary">
+
+                    <i class="bi bi-house-door-fill"></i>
+
+                    Dashboard
+
+                </a>
+
+                <a href="{% url 'profile' %}"
+                   class="btn btn-outline-secondary">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    Profile
+
+                </a>
+
+                <a href="{% url 'logout' %}"
+                   class="btn btn-danger">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>

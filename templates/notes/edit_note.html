@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Note
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container mt-5">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="card shadow">
+
+<div class="card-body p-5">
+
+<h2 class="mb-4">
+
+Edit Note
+
+</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button class="btn btn-success">
+
+Update Note
+
+</button>
+
+<a href="{% url 'notes' %}"
+
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

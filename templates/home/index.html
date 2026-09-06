@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+LifeVault - A Personal Digital Second Brain
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/navbar.html' %}
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero-section">
+
+    <div class="container-custom">
+
+        <div class="row align-items-center">
+
+            <!-- ================= LEFT SIDE ================= -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        All-in-One Personal Organizer
+                    </span>
+
+                    <h1>
+
+                        Your Personal
+
+                        <span>Digital Second Brain</span>
+
+                    </h1>
+
+                    <p>
+
+                        Organize your notes, documents,
+                        passwords, reminders, tasks,
+                        expenses and everything important
+                        in your life — all in one secure place.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#" class="btn btn-primary btn-lg">
+
+                            Get Started Free
+
+                        </a>
+
+                        <a href="#" class="btn btn-outline-dark btn-lg">
+
+                            Learn More
+
+                        </a>
+
+                    </div>
+
+                    <!-- Features -->
+
+                    <div class="hero-features mt-5">
+
+                        <div class="feature-item">
+
+                            <i class="bi bi-shield-check"></i>
+
+                            <div>
+
+                                <h6>100% Secure</h6>
+
+                                <small>Your data is encrypted</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            <i class="bi bi-lightning-charge"></i>
+
+                            <div>
+
+                                <h6>Easy to Use</h6>
+
+                                <small>Simple & Beautiful</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            <i class="bi bi-cloud-check"></i>
+
+                            <div>
+
+                                <h6>Access Anywhere</h6>
+
+                                <small>Available on all devices</small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= RIGHT SIDE ================= -->
+
+            <div class="col-lg-6 text-center">
+
+                <img
+    src="{% static 'images/hero-image.png' %}"
+    alt="LifeVault Hero"
+    class="hero-image">
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= FEATURES SECTION ================= -->
+
+<section class="features-section" id="features">
+
+    <div class="container-custom">
+
+        <div class="text-center section-heading">
+
+            <h2>Everything You Need,<br>All in One Place</h2>
+
+            <p>
+                LifeVault helps you organize every important part of your
+                digital life in one secure and beautiful workspace.
+            </p>
+
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-journal-text"></i>
+                    <h4>Notes</h4>
+                    <p>Capture ideas instantly and organize them effortlessly.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <h4>Documents</h4>
+                    <p>Store important files safely in one place.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-shield-lock"></i>
+                    <h4>Password Vault</h4>
+                    <p>Keep all your passwords secure and accessible.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-calendar-event"></i>
+                    <h4>Calendar</h4>
+                    <p>Remember birthdays, meetings and deadlines.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-check2-square"></i>
+                    <h4>Tasks</h4>
+                    <p>Manage your daily work and personal goals.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-wallet2"></i>
+                    <h4>Expenses</h4>
+                    <p>Track your spending with ease.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-people"></i>
+                    <h4>Contacts</h4>
+                    <p>Save important people and their details.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <i class="bi bi-stars"></i>
+                    <h4>Wishlist</h4>
+                    <p>Keep track of your future goals and dreams.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+        FINAL CTA SECTION
+========================================== -->
+
+<section class="cta-section">
+
+    <div class="container-custom">
+
+        <div class="cta-box text-center">
+
+            <span class="hero-tag">
+                Start Your Journey
+            </span>
+
+            <h2 class="cta-title">
+
+                Your Digital Life,
+                <span>Beautifully Organized.</span>
+
+            </h2>
+
+            <p class="cta-text">
+
+                Store your notes, documents, passwords,
+                tasks, expenses, reminders and memories
+                in one secure place.
+                Stay organized, stay productive,
+                and never lose what matters.
+
+            </p>
+
+            <div class="cta-buttons">
+
+                <a href="{% url 'register' %}"
+                   class="btn btn-primary btn-lg">
+
+                    Get Started Free
+
+                </a>
+
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-dark btn-lg">
+
+                    Login
+
+                </a>
+
+            </div>
+
+            <div class="cta-info">
+
+                <span>🔒 Secure</span>
+
+                <span>☁ Cloud Ready</span>
+
+                <span>📱 Access Anywhere</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

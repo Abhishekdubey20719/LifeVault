@@ -1,0 +1,92 @@
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="bi bi-shield-lock-fill"></i>
+
+        <span>LifeVault</span>
+
+    </div>
+
+    <ul class="sidebar-menu">
+
+    <li class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+        <a href="{% url 'dashboard' %}">
+            <i class="bi bi-grid"></i>
+            Dashboard
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'notes' %}active{% endif %}">
+        <a href="{% url 'notes' %}">
+            <i class="bi bi-journal-text"></i>
+            Notes
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'documents' %}active{% endif %}">
+        <a href="{% url 'documents' %}">
+            <i class="bi bi-file-earmark-text"></i>
+            Documents
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'password_vault' %}active{% endif %}">
+        <a href="{% url 'password_vault' %}">
+            <i class="bi bi-shield-lock"></i>
+            Password Vault
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'calendar' %}active{% endif %}">
+        <a href="{% url 'calendar' %}">
+            <i class="bi bi-calendar-event"></i>
+            Calendar
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'tasks' %}active{% endif %}">
+        <a href="{% url 'tasks' %}">
+            <i class="bi bi-check2-square"></i>
+            Tasks
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'expenses' %}active{% endif %}">
+        <a href="{% url 'expenses' %}">
+            <i class="bi bi-wallet2"></i>
+            Expenses
+        </a>
+    </li>
+
+    <li class="{% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
+        <a href="{% url 'profile' %}">
+            <i class="bi bi-person-circle"></i>
+            Profile
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'logout' %}">
+            <i class="bi bi-box-arrow-right"></i>
+            Logout
+        </a>
+    </li>
+
+</ul>
+
+    <div class="profile-box">
+
+        <img src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=4F46E5&color=fff">
+
+        <div>
+
+            <h6 style="margin:0;">{{ request.user.username }}</h6>
+
+            <small style="color:#cbd5e1;">LifeVault User</small>
+
+        </div>
+
+    </div>
+
+</div>

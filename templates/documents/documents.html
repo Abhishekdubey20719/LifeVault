@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Documents | LifeVault
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container py-5">
+
+    <!-- Page Header -->
+
+    <div class="d-flex justify-content-between align-items-center mb-5">
+
+        <div>
+
+            <h2 class="fw-bold">
+                📂 My Documents
+            </h2>
+
+            <p class="text-muted">
+
+                Store and organize all your important documents securely.
+
+            </p>
+
+        </div>
+
+        <a href="{% url 'upload_document' %}" class="btn btn-primary btn-lg">
+
+            <i class="bi bi-upload"></i>
+
+            Upload Document
+
+        </a>
+
+    </div>
+
+    <!-- Categories -->
+
+    <div class="row g-4">
+
+        <!-- Personal -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm border-0 h-100 category-card">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-person-vcard display-3 text-primary"></i>
+
+                    <h4 class="mt-4">
+
+                        Personal
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Aadhaar, PAN, Passport,
+                        Driving License etc.
+
+                    </p>
+
+<a href="{% url 'category_documents' 'Personal' %}"
+   class="btn btn-outline-primary">
+
+    Open Folder
+
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Education -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm border-0 h-100 category-card">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-mortarboard display-3 text-success"></i>
+
+                    <h4 class="mt-4">
+
+                        Education
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Marksheets,
+                        Certificates,
+                        Degrees
+
+                    </p>
+
+                    <a href="{% url 'category_documents' 'Education' %}"
+   class="btn btn-outline-success">
+
+    Open Folder
+
+</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Career -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm border-0 h-100 category-card">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-briefcase display-3 text-warning"></i>
+
+                    <h4 class="mt-4">
+
+                        Career
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Resume,
+                        Internship,
+                        Experience
+
+                    </p>
+
+                    <a href="{% url 'category_documents' 'Career' %}"
+   class="btn btn-outline-warning">
+
+    Open Folder
+
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Finance -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm border-0 h-100 category-card">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-wallet2 display-3 text-danger"></i>
+
+                    <h4 class="mt-4">
+
+                        Finance
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Bank,
+                        Tax,
+                        Insurance
+
+                    </p>
+
+                    <a href="{% url 'category_documents' 'Finance' %}"
+   class="btn btn-outline-danger">
+
+    Open Folder
+
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Medical -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm border-0 h-100 category-card">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-heart-pulse display-3 text-info"></i>
+
+                    <h4 class="mt-4">
+
+                        Medical
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Reports,
+                        Prescriptions,
+                        Health Records
+
+                    </p>
+
+                    <a href="{% url 'category_documents' 'Medical' %}"
+   class="btn btn-outline-info">
+
+    Open Folder
+
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Others -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm border-0 h-100 category-card">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-folder display-3 text-secondary"></i>
+
+                    <h4 class="mt-4">
+
+                        Others
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        PDFs,
+                        Images,
+                        ZIP,
+                        Misc Files
+
+                    </p>
+
+                    <a href="{% url 'category_documents' 'Others' %}"
+   class="btn btn-outline-secondary">
+
+    Open Folder
+
+</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

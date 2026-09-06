@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ category }} Documents
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-5">
+
+        <div>
+
+            <h2>
+
+                📂 {{ category }}
+
+            </h2>
+
+            <p class="text-muted">
+
+                All your {{ category }} documents.
+
+            </p>
+
+        </div>
+
+        <a href="{% url 'upload_document_category' category %}"
+
+           class="btn btn-primary">
+
+            Upload Document
+
+        </a>
+
+    </div>
+
+    <div class="row">
+
+        {% for document in documents %}
+
+        <div class="col-lg-4 mb-4">
+
+            <div class="card shadow h-100">
+
+                <div class="card-body">
+
+                    <h5>
+
+                        {{ document.title }}
+
+                    </h5>
+
+                    <p>
+
+                        {{ document.description }}
+
+                    </p>
+
+                </div>
+
+                <div class="card-footer bg-white">
+
+                    <small>
+
+                        {{ document.uploaded_at|date:"d M Y" }}
+
+                    </small>
+
+                    <hr>
+
+                    <a href="{% url 'view_document' document.id %}"
+
+                       class="btn btn-success btn-sm">
+
+                        View
+
+                    </a>
+
+                    <a href="{% url 'edit_document' document.id %}"
+
+                       class="btn btn-warning btn-sm">
+
+                        Edit
+
+                    </a>
+
+                    <a href="{% url 'delete_document' document.id %}"
+
+                       class="btn btn-danger btn-sm">
+
+                        Delete
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="text-center py-5">
+
+            <h3>
+
+                No Documents Found
+
+            </h3>
+
+            <p>
+
+                Upload your first document in this category.
+
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

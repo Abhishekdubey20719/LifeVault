@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Add Transaction | LifeVault
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <h2 class="fw-bold mb-2">
+
+                        <i class="bi bi-plus-circle"></i>
+
+                        Add Transaction
+
+                    </h2>
+
+                    <p class="text-muted mb-4">
+
+                        Record a new income or expense.
+
+                    </p>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Transaction Type
+
+                            </label>
+
+                            {{ form.transaction_type }}
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Title
+
+                            </label>
+
+                            {{ form.title }}
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Category
+
+                            </label>
+
+                            {{ form.category }}
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Amount (₹)
+
+                                </label>
+
+                                {{ form.amount }}
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Date
+
+                                </label>
+
+                                {{ form.date }}
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+
+                                Description
+
+                            </label>
+
+                            {{ form.description }}
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Save Transaction
+
+                        </button>
+
+                        <a href="{% url 'expenses' %}"
+                           class="btn btn-outline-secondary ms-2">
+
+                            Cancel
+
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

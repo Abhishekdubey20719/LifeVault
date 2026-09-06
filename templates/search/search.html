@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Global Search | LifeVault
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container py-5">
+
+    <h2 class="fw-bold mb-4">
+
+        <i class="bi bi-search"></i>
+
+        Global Search
+
+    </h2>
+
+    <form method="GET">
+
+        <div class="input-group mb-5">
+
+            <input
+                type="text"
+                name="q"
+                class="form-control"
+                placeholder="Search notes, tasks, passwords..."
+                value="{{ query }}">
+
+            <button class="btn btn-primary">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+    {% if query %}
+
+        <!-- Notes -->
+
+        <h4 class="mt-4">📝 Notes</h4>
+
+        {% if notes %}
+
+            {% for note in notes %}
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+
+                        <a href="{% url 'view_note' note.id %}"
+   class="text-decoration-none fw-semibold">
+
+    {{ note.title }}
+
+</a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">No notes found.</p>
+
+        {% endif %}
+
+        <!-- Documents -->
+
+        <h4 class="mt-4">📄 Documents</h4>
+
+        {% if documents %}
+
+            {% for doc in documents %}
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+
+                        <a href="{% url 'view_document' doc.id %}"
+   class="text-decoration-none fw-semibold">
+
+    {{ doc.title }}
+
+</a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">No documents found.</p>
+
+        {% endif %}
+
+        <!-- Passwords -->
+
+        <h4 class="mt-4">🔑 Passwords</h4>
+
+        {% if passwords %}
+
+            {% for password in passwords %}
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+
+                        <a href="{% url 'view_password' password.id %}"
+   class="text-decoration-none fw-semibold">
+
+    {{ password.website }}
+
+</a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">No passwords found.</p>
+
+        {% endif %}
+
+        <!-- Calendar -->
+
+        <h4 class="mt-4">📅 Calendar Events</h4>
+
+        {% if events %}
+
+            {% for event in events %}
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+
+                        <a href="{% url 'view_event' event.id %}"
+   class="text-decoration-none fw-semibold">
+
+    {{ event.title }}
+
+</a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">No events found.</p>
+
+        {% endif %}
+
+        <!-- Tasks -->
+
+        <h4 class="mt-4">✅ Tasks</h4>
+
+        {% if tasks %}
+
+            {% for task in tasks %}
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+
+                        <a href="{% url 'view_task' task.id %}"
+   class="text-decoration-none fw-semibold">
+
+    {{ task.title }}
+
+</a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">No tasks found.</p>
+
+        {% endif %}
+
+        <!-- Expenses -->
+
+        <h4 class="mt-4">💰 Expenses</h4>
+
+        {% if expenses %}
+
+            {% for expense in expenses %}
+
+                <div class="card mb-2">
+
+                    <div class="card-body">
+
+                        <a href="{% url 'view_transaction' expense.id %}"
+   class="text-decoration-none fw-semibold">
+
+    {{ expense.category }}
+
+</a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">No expenses found.</p>
+
+        {% endif %}
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+View Transaction | LifeVault
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/app_navbar.html' %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h2 class="fw-bold">
+
+                            <i class="bi bi-wallet2"></i>
+
+                            {{ transaction.title }}
+
+                        </h2>
+
+                        {% if transaction.transaction_type == "Income" %}
+
+                            <span class="badge bg-success fs-6">
+
+                                Income
+
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger fs-6">
+
+                                Expense
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <h6 class="text-muted">
+
+                                Amount
+
+                            </h6>
+
+                            {% if transaction.transaction_type == "Income" %}
+
+                                <h3 class="text-success">
+
+                                    + ₹{{ transaction.amount }}
+
+                                </h3>
+
+                            {% else %}
+
+                                <h3 class="text-danger">
+
+                                    - ₹{{ transaction.amount }}
+
+                                </h3>
+
+                            {% endif %}
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <h6 class="text-muted">
+
+                                Category
+
+                            </h6>
+
+                            <p>
+
+                                {{ transaction.category }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <h6 class="text-muted">
+
+                                Date
+
+                            </h6>
+
+                            <p>
+
+                                {{ transaction.date }}
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <h6 class="text-muted">
+
+                                Transaction Type
+
+                            </h6>
+
+                            <p>
+
+                                {{ transaction.transaction_type }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <h6 class="text-muted">
+
+                            Description
+
+                        </h6>
+
+                        {% if transaction.description %}
+
+                            <p>
+
+                                {{ transaction.description }}
+
+                            </p>
+
+                        {% else %}
+
+                            <p class="text-muted">
+
+                                No description available.
+
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <h6 class="text-muted">
+
+                                Created
+
+                            </h6>
+
+                            <p>
+
+                                {{ transaction.created_at|date:"d M Y, h:i A" }}
+
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <h6 class="text-muted">
+
+                                Last Updated
+
+                            </h6>
+
+                            <p>
+
+                                {{ transaction.updated_at|date:"d M Y, h:i A" }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex gap-2">
+
+                        <a href="{% url 'edit_transaction' transaction.id %}"
+                           class="btn btn-warning">
+
+                            <i class="bi bi-pencil-square"></i>
+
+                            Edit
+
+                        </a>
+
+                        <a href="{% url 'delete_transaction' transaction.id %}"
+                           class="btn btn-danger">
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete
+
+                        </a>
+
+                        <a href="{% url 'expenses' %}"
+                           class="btn btn-secondary">
+
+                            <i class="bi bi-arrow-left"></i>
+
+                            Back
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
